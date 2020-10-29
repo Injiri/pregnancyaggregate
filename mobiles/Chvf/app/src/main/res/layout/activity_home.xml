@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DFE6E5"
     tools:context=".activities.Home">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:weightSum="2">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|left"
+                android:paddingTop="5dp"
+                android:text="CU PREGNANT WOMEN REGISTRATION FORM"
+                android:textAlignment="center"
+                android:textStyle="italic|bold"/>
+
+        </TableRow>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="20dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,12 +57,12 @@
             android:padding="10dp" />
 
         <EditText
-            android:id="@+id/pregnancy_stage"
+            android:id="@+id/edd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/ed_white_background_"
-            android:hint="Pregnancy Stage"
+            android:hint="Expected D.O.D"
             android:padding="10dp" />
 
         <EditText
@@ -55,12 +76,28 @@
             android:padding="10dp" />
 
         <EditText
-            android:id="@+id/location"
+            android:id="@+id/village"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/ed_white_background_"
-            android:hint="Location"
+            android:hint="Village"
+            android:padding="10dp" />
+        <EditText
+            android:id="@+id/link_facility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ed_white_background_"
+            android:hint="Link facility"
+            android:padding="10dp" />
+        <EditText
+            android:id="@+id/link_cu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ed_white_background_"
+            android:hint="Link CU"
             android:padding="10dp" />
 
         <EditText
@@ -96,7 +133,7 @@
 
 
     </LinearLayout>
+    </LinearLayout>
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

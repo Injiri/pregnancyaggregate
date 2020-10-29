@@ -11,8 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.AuthHolder"
-            android:theme="@style/EmptyActionBar"/>
+        <activity android:name=".activities.SubmitedFormsActivity"></activity>
+        <activity
+            android:name=".activities.AuthHolder"
+            android:theme="@style/EmptyActionBar" />
         <activity android:name=".activities.Home" />
         <activity android:name=".activities.SplashScreen">
             <intent-filter>

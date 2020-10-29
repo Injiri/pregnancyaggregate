@@ -1,19 +1,22 @@
 package com.hackathon.sailors.models;
 
 
+import java.util.ArrayList;
+
 public class User {
 
     private int id;
     private String name;
     private String email;
     private String password;
-
+    private ArrayList<String> linkCus;
     public User() {
     }
 
-    public User(String name, String password) {
+    public User(String name, String password, ArrayList<String> linkCus) {
         this.name = name;
         this.password = password;
+        this.linkCus = linkCus;
     }
 
     public String getName() {
@@ -46,5 +49,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public ArrayList<String> getLinkCus() {
+        return linkCus;
+    }
+
+    public void setLinkCus(ArrayList<String> linkCus) {
+        this.linkCus = linkCus;
     }
 }

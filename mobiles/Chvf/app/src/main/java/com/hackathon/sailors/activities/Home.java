@@ -22,7 +22,7 @@ import retrofit2.Response;
 
 public class Home extends AppCompatActivity {
 
-    private EditText name, phoneNumber, pregnancyStage, age,location, district;
+    private EditText name, phoneNumber, village, age, edd, linkFacility, linkCu, ContactCHV, district;
     private Button submitButton;
     private ProgressDialog progressDialog;
 
@@ -37,10 +37,14 @@ public class Home extends AppCompatActivity {
 
         name = findViewById(R.id.name);
         phoneNumber = findViewById(R.id.phoneNumber);
-        pregnancyStage = findViewById(R.id.pregnancy_stage);
+        edd = findViewById(R.id.edd);
         age = findViewById(R.id.age);
-        location = findViewById(R.id.location);
+        village = findViewById(R.id.village);
+        linkFacility = findViewById(R.id.link_facility);
+        linkCu = findViewById(R.id.link_cu);
+        ContactCHV = findViewById(R.id.link_cu); //get currently logged in user
         district = findViewById(R.id.district);
+
         submitButton = findViewById(R.id.submit_bt);
         submitButton.setOnClickListener(v -> submitDetails());
     }
@@ -49,35 +53,39 @@ public class Home extends AppCompatActivity {
 
         String mName = name.getText().toString().trim();
         String mphoneNumber = phoneNumber.getText().toString().trim();
-        String mPregnancyStage = pregnancyStage.getText().toString().trim();
+        String mEdd = edd.getText().toString().trim();
         String mAge = age.getText().toString().trim();
-        String mLocation = location.getText().toString().trim();
+        String mVillage = village.getText().toString().trim();
+        String mLinkFacility = linkFacility.getText().toString().trim();
+        String mLinkCu = linkCu.getText().toString().trim();
+        String mContactCHV = ContactCHV.getText().toString().trim();
         String mDistrict = district.getText().toString().trim();
-        if(TextUtils.isEmpty(mName) || TextUtils.isEmpty(mphoneNumber) || TextUtils.isEmpty(mPregnancyStage) || TextUtils.isEmpty(mAge) || TextUtils.isEmpty(mLocation) || TextUtils.isEmpty(mDistrict)){
+        if (TextUtils.isEmpty(mName) || TextUtils.isEmpty(mphoneNumber) || TextUtils.isEmpty(mEdd) || TextUtils.isEmpty(mAge) || TextUtils.isEmpty(mVillage)
+                || TextUtils.isEmpty(mLinkFacility) || TextUtils.isEmpty(mLinkCu) || TextUtils.isEmpty(mContactCHV) || TextUtils.isEmpty(mDistrict)) {
             Toast.makeText(getApplicationContext(), "Please fill All the fields ", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        DataEntryForm form = new DataEntryForm(mName,mphoneNumber, mPregnancyStage,"",mLocation,mDistrict);
+        DataEntryForm form = new DataEntryForm(mName, mphoneNumber, mEdd, mAge, mVillage, mLinkFacility, mLinkCu, mContactCHV, mDistrict);
         progressDialog.show();
 
         RetrofitServiceInstance.getApi().postData(form).enqueue(new Callback<ApiResponse<Void>>() {
             @Override
             public void onResponse(Call<ApiResponse<Void>> call, Response<ApiResponse<Void>> response) {
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "Your Data was posted successfully", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext() , Home.class));
+                    startActivity(new Intent(getApplicationContext(), Home.class));
                     finish();
 
-                }else{
-                    Toast.makeText(getApplicationContext(),"There was a problem posting your data we will try again next time", Toast.LENGTH_SHORT ).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "There was a problem posting your data we will try again next time", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                 }
             }
 
             @Override
             public void onFailure(Call<ApiResponse<Void>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),"There was a Technical "+t.getLocalizedMessage(), Toast.LENGTH_SHORT ).show();
+                Toast.makeText(getApplicationContext(), "There was a Technical " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
             }
         });

@@ -1,17 +1,20 @@
 package com.hackathon.sailors.models;
 
 public class DataEntryForm {
-    private String name,phoneNumber,pregnancyStage,age,location,district;
+    private String name,phoneNumber,village,age,edd,linkFacility,linkCu,ContactCHV,district;
 
     public DataEntryForm() {
     }
 
-    public DataEntryForm(String name, String phoneNumber, String pregnancyStage, String age, String location, String district) {
+    public DataEntryForm(String name, String phoneNumber, String village, String age, String edd, String linkFacility, String linkCu, String contactCHV, String district) {
         this.name = name;
         this.phoneNumber = phoneNumber;
-        this.pregnancyStage = pregnancyStage;
+        this.village = village;
         this.age = age;
-        this.location = location;
+        this.edd = edd;
+        this.linkFacility = linkFacility;
+        this.linkCu = linkCu;
+        ContactCHV = contactCHV;
         this.district = district;
     }
 
@@ -31,12 +34,12 @@ public class DataEntryForm {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getPregnancyStage() {
-        return pregnancyStage;
+    public String getVillage() {
+        return village;
     }
 
-    public void setPregnancyStage(String pregnancyStage) {
-        this.pregnancyStage = pregnancyStage;
+    public void setVillage(String village) {
+        this.village = village;
     }
 
     public String getAge() {
@@ -47,12 +50,36 @@ public class DataEntryForm {
         this.age = age;
     }
 
-    public String getLocation() {
-        return location;
+    public String getEdd() {
+        return edd;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setEdd(String edd) {
+        this.edd = edd;
+    }
+
+    public String getLinkFacility() {
+        return linkFacility;
+    }
+
+    public void setLinkFacility(String linkFacility) {
+        this.linkFacility = linkFacility;
+    }
+
+    public String getLinkCu() {
+        return linkCu;
+    }
+
+    public void setLinkCu(String linkCu) {
+        this.linkCu = linkCu;
+    }
+
+    public String getContactCHV() {
+        return ContactCHV;
+    }
+
+    public void setContactCHV(String contactCHV) {
+        ContactCHV = contactCHV;
     }
 
     public String getDistrict() {
