@@ -6,7 +6,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-class SubmitedFormsAdapter extends RecyclerView.Adapter<SubmitedFormsAdapter.SubmitedFormsHolder> {
+import com.hackathon.sailors.models.DataEntryForm;
+
+import java.util.ArrayList;
+
+public class SubmitedFormsAdapter extends RecyclerView.Adapter<SubmitedFormsAdapter.SubmitedFormsHolder> {
+    ArrayList<DataEntryForm> completedDataEntryForms ;
+
     @NonNull
     @Override
     public SubmitedFormsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
